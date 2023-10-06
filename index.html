@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sanjeev Nayak's Internet Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👻</text></svg>">
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.151.3/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.151.3/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="x-shader/x-vertex" id="vertexshader">
+
+			varying vec2 vUv;
+
+			void main() {
+
+				vUv = uv;
+
+				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+			}
+
+		</script>
+
+		<script type="x-shader/x-fragment" id="fragmentshader">
+
+			uniform sampler2D baseTexture;
+			uniform sampler2D bloomTexture;
+
+			varying vec2 vUv;
+
+			void main() {
+
+				gl_FragColor = ( texture2D( baseTexture, vUv ) + vec4( 1.0 ) * texture2D( bloomTexture, vUv ) );
+
+			}
+
+		</script>
+
+    <script defer type="module" src="main.js" ></script>
+  </head>
+  <body>
+    <div id="three-dee"></div>
+
+    <div id="content">
+      <div id="headshot-wrap">
+        <div id="headshot">
+          <img class="main" src="./img/me.jpg" />
+        </div>     
+        <div class="color-blob">
+          <div class="color-blob__blob color-blob__blob--r"></div>
+          <div class="color-blob__blob color-blob__blob--g"></div>
+          <div class="color-blob__blob color-blob__blob--b"></div>
+        </div>  
+      </div>
+    
+      <h1 id="main">Hi, I'm Sanjeev Nayak</h1>
+      <p>I'm a UX Engineer with many years of experience in product engineering, architecture, and design. I earned my Master's degree in Digital Media from Georgia Tech in '22. I've spent my career working in fast-paced startup environments helping companies define and realize product visions.</p>
+      <p>If you want to learn more, take a look at my <a href="https://www.linkedin.com/in/sanjeev-nayak-87305637/">LinkedIn</a>.</p>
+
+      <div class="dot-blob"></div>
+
+      <section id="web">
+        <h1>Web Development</h1>
+        <p>I've been professionally developing softare for the web since 2011. I've always had a focus towards User Experience, combining technical and design skillsets to build meaningful products.</p>
+        <p>I have experience across the full-stack, though front-end and UI/UX development is my main passion.</p>
+        <p>If you don't believe me, take a look at my resume below.  For code samples and various web development work, you can take a look through my <a href="https://github.com/oldfashionedrobot">Github profile</a>.</p>
+        <div class="pdf-wrapper">
+          <embed src="NayakResumeColor.pdf" />
+        </div>
+        <p>If your browser can't render the embedded PDF, see it <a href="/NayakResumeColor.pdf">here.</a></p>
+      </section>
+
+      <div class="dot-blob"></div>
+
+      <section id="games">
+        <h1>Game Development</h1>
+        <p>My interest in designing and building interactive experiences extends beyond the web. I've also been a hobbyist game developer for many years, building projects with the <a href="https://unity.com/">Unity</a> engine.</p>
+
+        <div class="content-wrap">
+          <div class="content-bit">
+            <h3>Master's Thesis Project</h3>
+            <p>This project explores the idea of giving players in shared virtual worlds more control to express with their avatar body without sacrificing gameplay functionality. For a more in depth writeup, <a href="http://dwig.lmc.gatech.edu/projects/nayak/">see here</a>.</p>
+            <div class="iframe-wrapper">
+              <iframe width="1280" height="720" src="https://www.youtube.com/embed/UPsW-O2au08" title="YouTube video player"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+      
+          <div class="content-bit">
+            <h3>Game Prototype Explorations</h3>
+            <p>I implemented a few small game prototypes to experiment with building different genres of gameplay functionality.</p>
+            <div class="iframe-wrapper">
+              <iframe width="1280" height="720" src="https://www.youtube.com/embed/Iq3S2viqXZY" title="YouTube video player"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="content-bit">
+            <h3>Adventure Game</h3>
+            <p>Some screenshots from an older point-and-click adventure game project. I drew the character art along with all design and code work, and worked with other artists for environemnt art and animation.</p>
+            <div class="image-wrapper">
+              <img src="./img/so1.png"/>
+              <img src="./img/so2.png"/>
+              <img src="./img/so3.png"/>
+              <img src="./img/so4.png"/>
+              <img src="./img/so5.png"/>
+            </div>
+          </div>
+      
+          <div class="content-bit">
+            <h3>Smartphone Motion Controls</h3>
+            <p>A digital puppetry project from my Undergrad days at Georgia Tech using smartphones as motion tracking controllers to control 3D puppets on a virtual stage. I created all the 2D and 3D art, and most of the code. For more info <a href="http://dwig.lmc.gatech.edu/projects/puppettime/">see here</a>.</a></p>
+            <div class="image-wrapper">
+              <img src="./img/pt1.png"/>
+              <img src="./img/pt2.png"/>
+              <img src="./img/pt3.png"/>
+              <img src="./img/pt4.png"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="dot-blob"></div>
+
+      <section id="contact">
+        <h1>Contact</h1>
+        <p>To contact me, please light a large fire at the highest point in your area, and I'll be in touch within the next fortnight.</p>
+        <p>Or you can email me at <a href="mailto:snayak00@gmail.com">snayak00@gmail.com</a>.</p>
+      </section>
+
+    </div>
+       
+    <footer>
+      <p>
+        Copyright © Sanjeev Nayak <span id="cp-date">1989</span>
+      </p>
+      <p>
+        <small>But why would you want to steal this?</small>
+      </p>
+    </footer>
+  </body>
+</html>

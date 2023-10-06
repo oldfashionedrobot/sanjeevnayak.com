@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hybrid Modes of Interaction</title>
+  <link rel="icon" type="image/png" href="img/icon.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css"/>
+
+</head>
+<body>
+  <nav id="sticky">
+    <img src="img/icon.png">
+
+    <a href="#abstract">Abstract</a>
+    <a href="#approach">Approach</a>
+    <a href="#design">Design</a>
+    <a href="#implementation">Implementation</a>
+    <a href="#future">Summary</a>
+
+    <span class="links">
+      For more info: <a href="mailto:sanjeev@gatech.edu">✉ Sanjeev Nayak</a>
+      <a href="http://dwig.lmc.gatech.edu/">☛ DWIG @ Georgia Tech</a>
+    </span>
+  </nav>
+
+  <header>
+    <h1>Hybrid Modes of Interaction: Gameplay and Expression in Multiplayer Game Worlds</h1>
+    <nav>
+
+    </nav>
+    <p>
+      Sanjeev Nayak - MS DM '22 @ Georgia Tech
+      <br>
+      Committee Chair: Michael Nitsche
+      <br>
+      Committee Members: Anne Sullivan, Janet Murray, Ali Mazalek
+
+    </p>
+  </header>
+
+  <section id="abstract" class="hero">
+    <iframe width="630" height="360" src="https://www.youtube.com/embed/UPsW-O2au08?controls=0" title="YouTube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <p>
+      <h4>
+        Abstract 
+      </h4>
+      Control schemes in video game worlds tend to be focused on enabling players to affect the virtual world in order to
+      achieve specific gameplay goals. As a result, players often do not have direct control over the articulation of their
+      avatar’s body. Various forms of motion tracking have been employed in the past to offer players the ability to control
+      avatar body motion by moving their own body. This requires a tradeoff; linking the player’s body to the avatar’s body
+      limits the avatar’s own movement capabilities. Modern virtual reality systems have addressed this issue by combining
+      both controllers and motion tracking hardware to offer a robust mix of both capabilities. However, they typically
+      require a head-mounted display, placing the player in a first-person viewpoint, and are currently prohibitively
+      expensive for many people. This project presents a hybrid interaction solution designed for a standard desktop computer
+      display, using widely available input devices for both complex button-mapped actions, and more granular avatar body
+      articulation.</p>
+  </section>
+
+  <section id="approach">
+    <h1>Approach</h1>
+
+
+    <div class="content">
+      <img width="400" src="https://www.gearbrain.com/media-library/less-than-p-greater-than-the-teslasuit-has-68-haptic-sections-to-create-physical-sensations-less-than-p-greater-than.png?id=26950780">
+
+      <div class="text">
+        <h4 class="no-marg-top">
+          Embodied Control Methods
+        </h4>
+
+        While examples of combining controller input with body motion input for third-person experiences exist, they are
+        certainly nowhere near as advanced as current head-mounted virtual reality systems. First-person experiences with these
+        systems effectively present the avatar body as if it were the player’s body, overlaying the virtual space over the
+        player’s real world space. One-to-one matching of the player’s body to that of the avatar is important to keep this
+        illusion intact. A third-person perspective on a standard computer monitor, however, more explicitly presents the avatar
+        and the player as two separate bodies. Without the illusion of sharing the same space as the avatar body, the human
+        body’s motion can be more selectively applied to articulate the avatar, as opposed to a one-to-one mapping. This also
+        allows for only utilizing the body motion input in specific interactions as opposed to always being active
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="content">
+      
+      <img width="400" src="https://www.cnet.com/a/img/qcyQZE3O9ndH0SwOqRkRcYf9tpU=/1200x675/2010/09/27/225d43e9-cbf2-11e2-9a4a-0291187b029a/movevskinectvswii.jpg">
+
+      <div class="text">
+        <h4 class="no-marg-top">
+          Combining Methods of Control
+        </h4>
+
+        Gamepad hardware and interaction designs have been solidified and standardized across many genres of games, such that
+        most commercially available gamepads can be interchangeable for most use cases. Motion based input devices, however, are
+        much more differentiated. Virtual reality systems use a mix of wearable inertial measurement units and computer vision
+        to implement a nearly seamless mapping between the human player’s body motion and their avatar. These are typically
+        proprietary hardware devices designed for use only with their respective hardware ecosystems. Computer vision based
+        approaches allow for more options. There are many open source implementations of body tracking software that can be used
+        with many kinds of cameras, even common laptop webcams. The Microsoft Kinect device is a purpose built motion tracking
+        camera with the added ability to capture depth data about the scene using infrared sensors. This allows for more
+        accurate body tracking than a single standalone webcam might be able to offer.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="content">
+      
+      <img width="400" src="https://variety.com/wp-content/uploads/2018/10/fortnitedisco.png?w=681&h=383&crop=1">
+
+      <div class="text">
+        <h4 class="no-marg-top">
+          Hybrid Control Schemes
+        </h4>
+        This body motion input can be seen as a layer on top of more traditional interaction mappings presented through a
+        gamepad controller. Moving the avatar around the virtual space, or orienting the camera are typically done with a pair
+        of analog joysticks, a common feature on most commercially available gamepads today. Buttons are often used to trigger
+        more complex functionality, like jumping and climbing platforms or opening doors. User interfaces and menus are
+        typically interacted with a combination of directional inputs and button presses. The body input layer can be activated
+        for specific interactive moments which might require more control over the avatar body, or even just for freely
+        expressing via avatar body motions.
+        <br><br>
+        Currently, a paradigm of pre-defined animated sequences called “emotes” has become a standard method of expressing via
+        avatar body motion in multiplayer games. This paradigm already switches control of the avatar body away from the gamepad
+        to a separate system. In this case the system is an automated system moving the avatar based on previously authored
+        animation data. With this proposed hybrid interaction system, this emote moment could simply switch control to a full
+        body tracking input to let a player effectively author their own emote animations in real time.
+
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="content">
+      
+      <img width="400" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Painted_cloth_depicting_a_scene_from_the_Ramayana.jpg">
+
+      <div class="text">
+        <h4 class="no-marg-top">
+          Inspiration
+        </h4>
+
+
+        <img style="float:right;margin-left:10px;" width="150" src="https://i.pinimg.com/originals/44/02/f6/4402f634a74cbee29b2aa34297b884fc.jpg">
+
+        In looking for a metaphor to design towards, the animated show Avatar: The Last Airbender seemed to be a good choice. The world is based around martial arts practitioners who cast spells by performing kicks, punches, flips, and many body movements to cast spells of four different elements; Earth, Water, Fire, and Air. The simple elements also lended themselves to a rock-paper-scissors style of logic that is often employed in games such as the hugely popular Pokemon to determine which spell type can defeat or counter another spell type. However, as design moved forward, the martial arts angle seemed to complicate matters in directions that were less about moving the avatar body and more about moving the human body itself.
+        <br>
+        
+        <br>
+        Departing from martial arts, but focusing on the concept of spells and counterspells, the idea of asthras from Indian mythology seemed apropos. These were magic weapons endowed with power by various deities, often in the form of a powerful arrow fired from a bow. Asthras show up in many different stories from Indian mythology. While some were meant for destructive power, others were used for protective purposes, and often different kinds of astras were used to counteract an opponent's asthra attack. One iconic example from the epic Ramayana is the final battle between the main protagonist, Rama, and the villain of the story, Ravana. The two powerful warriors were locked in combat, firing arrows from their chariots across the battlefield at each other.  
+
+      </div>
+    </div>
+
+  </section>
+
+  <section id="design">
+    <h1>Design</h1>
+
+    <div class="multi-img">
+      <img src="https://images.metmuseum.org/CRDImages/as/original/DP227593_CRD.jpg">
+    </div>
+<div class="spacer"></div>
+    <div class="content">
+      <img width="400" src="img\design1.jpg">
+
+      <div class="text">
+        <h4 class="no-marg-top">
+          Two-player Competitive Gameplay
+        </h4>
+
+      Drawing from Indian mythological motifs, the game is envisioned as a competition between two champion archers. Two
+      players occupy each side of an enclosed arena. The arena is divided by a line down the middle, and each player is
+      limited to moving only around their side of the arena. At either end of the arena, each player has a set of three tall
+      towers. Players must fire powerful arrows from their bows at their opponent’s towers to score points, or place defensive
+      obstacles to block opposing projectiles.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="content">
+      <img width="400" src="img\design2.jpg">
+
+      <div class="text">
+        <h4 class="no-marg-top">
+          Embodied Interactions
+        </h4>
+
+        To cast a spell, players must use the body motion tracking input layer to control their avatar body and perform a spell
+        casting movement. With movements of their own upper body mapping to the avatar’s, players will be able to first select
+        one of four elements to utilize, then perform a prescribed movement to “cast” their spell, and finally perform a bow and
+        arrow firing motion to aim and release the spell at a target.
+        <br><br>
+        <br>
+      
+        <img width="200" style="float:left; margin-right:10px;" src="img\design3.jpg">
+      Following along with the metaphor of the asthras, a player can recognize what type of spell their opponent is firing,
+      and can determine what type of spell to use to neutralize the arrow. A rock-paper-scissors paradigm will be used to
+      determine which element counters which other elements.
+
+        <br>
+        <br>
+
+Players can also choose to preemptively place defensive obstacles to block any future projectiles from their opponent.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="content no-flex">
+      <div class="multi-img">
+        <img width="400" src="img\design4.jpg">
+        <img width="400" src="img\design5.jpg">
+        <img width="400" src="img\design6.jpg">
+      </div>
+      <div class="text">
+        <h4 class="no-marg-top">
+          Gameplay Decisions
+        </h4>
+        
+        The choices of attack, counter, defend allow for a few possibilities for players to develop their own gameplay
+        strategies. In order to cast any spell, players must gather resource items that spawn randomly around the arena. These
+        items fill up a limited resource bar, which is then consumed to cast and fire spell arrows throughout the game.
+        <br><br>
+        Players must navigate the arena to gather resources, make decisions about what types of elements to use for trying to
+        gain points, and must choose to spend resources to either attack a tower or defend against an attack. They also must
+        engage with a hybrid mode of interacting with gameplay; gamepad mapped controls allow for looking around and targeting
+        with a third-person camera, and body motion mapped controls must be used for selection, charging, and firing spells.
+      </div>
+    </div>
+  </section>
+
+
+  <section id="implementation">
+    <h1>Implementation</h1>
+    <p>
+This project is built with the Unity game engine. Unity is a broadly applicable game engine capable of working with many
+different platforms and hardware. Gamepad integrations are built into Unity, and gamepads are largely standardized
+around the dual joystick form. A Playstation 4 gamepad was chosen to work with for development of this project. Body
+motion based game controllers are not as widely available. The Xbox Kinect was one effort towards a standardized
+controller for body motion input using computer vision technology, but has since been discontinued. The future of the
+Kinect product line has been moved over to Microsoft’s web platform, Azure. Older Xbox Kinects are still available
+through secondary markets, and the Kinect for Xbox One was chosen for this project. The Kinect has an available SDK for
+interacting with the device, and reading the body motion data that it provides.    
+</p>
+
+    <div class="multi-img">
+
+      <img height="200" src="img/gamepad.png">
+  
+      <img height="200" src="img/kinect.png">
+      
+      <img height="200" src="img/unity.png">
+
+    </div>
+
+    Networking is achieved with Unity’s more recent network package, Netcode for Gameobjects. This is a newer package from
+    Unity, and is still undergoing changes. Currently, leveraging the package allows for easy networking of two instances
+    together. The network requirement for this project is limited to only two instances, and will be utilizing a hardwired
+    connection, to avoid any issues of network optimization or performance.
+
+
+
+    <div class="content">
+
+      <div >
+        <h4>
+          Interface
+        </h4>
+
+
+The game world is presented in third-person so the player can see their avatar. A camera positioned behind and rotating
+around the avatar body allows the player to swivel their viewpoint around and view the world from all angles, while
+keeping their avatar in central view.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="content">
+      <img width="500" src="img/imp1.png">
+
+      <div class="text">
+        <h4 class="no-marg-top">
+          Gamepad Controls
+        </h4>
+
+The gamepad is used for functionally traditionally expected in a third-person game world. Moving around the space is
+achieved with the left joystick. Animating the avatar body is done with Unity’s animation control systems. Walking,
+running, crouching and rotating animations are all played and blended automatically to match the movement of the avatar
+around the space. The right joystick is used to control the camera, rotating it around the avatar body. This allows for
+both viewing the world, but also allows the player to view their avatar from any angle they wish.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+    
+    <div class="content">
+      <img width="500" src="img/imp2.png">
+    
+      <div class="text">
+        <h4 class="no-marg-top">
+          Body Motion Controls
+        </h4>
+The Kinect offers full body, hand, and face tracking out of the box through their provided SDK. Similarly to Unity’s
+gamepad integration, this allows for reading and using the body motion inputs in the game engine. For the scope of this
+project, the body motion control is focused on the upper body. The player’s arms are tracked to control the orientation
+of the avatar arms, to allow for reaching, waving, and other acts. A small amount of torso motion is also applied to the
+avatar, some leaning and rotating of the torso is necessary for reaching one’s arm out around the body. Early testing
+proved that this small amount of torso movement is necessary for a reaching out action, as we tend to lean and rotate
+our torso naturally to extend our arms.
+<br><br>
+Tracked body motion from the Kinect is used to determine how to drive the avatar body motion. The avatar’s arms and
+upper torso are positioned with inverse kinematics to roughly match the orientation of the human body’s arms. It is not
+a complete one-to-one mapping, as proportional differences between the human and avatar bodies can cause some
+discrepancy. This issue is self-limiting, however, as the player can see their avatar body and can always adjust their
+arms to get the desired visual effect in their avatar.
+
+      </div>
+    </div><div class="spacer"></div>
+    
+    <div class="content">
+      <img width="500" src="img/imp3.png">
+    
+      <div class="text">
+        <h4 class="no-marg-top">
+          Hybrid Interaction
+        </h4>
+The two control schemes can be used together to perform hybrid interactions. While the motion tracking layer is used to
+articulate the avatar’s arms, the gamepad joysticks can still be operated to control the avatar’s lower body and motion
+around the game world. Pots placed around the game world can be smashed by “hitting” them with the avatar hand. The
+destroyed pots reveal a resource object, which is then collected by running over it with the avatar body.
+    
+      </div>
+    </div><div class="spacer"></div>
+    
+    <div class="content no-flex">
+   
+      <div class="text">
+        <h4 class="no-marg-top">
+          Spell Casting
+        </h4>
+        The spell casting interaction relies on the movement controls to articulate the avatar body to enact a spell “casting”
+        movement. This is designed to entice the player to move their avatar in a prescribed manner, by presenting hand
+        placement targets. A series of glowing orbs prompt the player to move their avatar’s hands to specific points around the
+        body. Basic collision detection is used to determine when an avatar hand reaches a designated point. Players first are
+        prompted with four colored orbs to select an element. Next they are presented with a sequence of single orbs which
+        direct the spell “casting” motion for the selected element.
+        
+        <div class="multi-img">
+          <img width="500" src="img/imp4.png">
+          <img width="500" src="img/imp5.png">
+          <img width="500" src="img/imp6.png">
+        </div>
+
+        The act of moving the avatar’s hand into various positions requires moving the whole body, including leaning and
+        rotating the torso. A sequence of such targets effectively invites the player to move in a prescribed manner. The
+        positional checkpoints determine the critical parts of the movement, while the player is free to move between each
+        checkpoint however they prefer. This allows for an aspect of personalization of the overall movements.
+    
+      </div>
+    </div><div class="spacer"></div>
+    
+    <div class="content no-flex">
+      <div class="text">
+        <h4 class="no-marg-top">
+          Spell Firing
+        </h4>
+After spells have been charged, they can be used to fire arrows at an opponent’s towers. A button press on the gamepad
+activates a bow and arrow mode, which uses positional checkpoints to prompt the player to reach forward and draw back an
+arm as if raising and drawing a bow. A bow model is added as a visual indicator to all players in the instance. To
+actually release the arrow, the right trigger on the gamepad must be held down during the draw back motion and released
+at the end.
+        <div class="multi-img">
+          <img width="500" src="img/imp7.png">
+          <img width="500" src="img/imp8.png">
+        </div>
+
+        The target tower is automatically determined based on the direction the player’s camera is pointed. A small crosshair on
+        the screen shows the center point of the camera used for targeting.
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+    
+    <div class="content">
+      <img width="500" src="img/imp9.png">
+    
+      <div class="text">
+        <h4 class="no-marg-top">
+          Defensive Obstacles
+        </h4>
+    
+        Finally, as a counterplay to the offensive arrow, players can spend a spell charge to place a defensive obstacle. This
+        functionality is provided with a simple button press on the gamepad. These obstacles will remain for a duration and
+        block opposing projectiles that collide with their boundaries.
+      </div>
+    </div>
+
+  </section>
+
+  
+  <section id="future">
+    <h1>Summary</h1>
+
+    This project offers insight into combining traditional gamepad inputs with an additive embodied interaction layer. The
+    ability to switch between or simultaneously use both of the input methods allow for taking advantage of the affordances
+    of each while mitigating the trade-offs of having to choose one over the other.The addition of these embodied avatar
+    controls can add an expressive social layer to any game designed for gamepads. While this exploration was initially
+    aimed at applying a concept of puppetry to the in-game avatar, this interface also shows the possibilities for designing
+    hybrid interactions for specific game functionality.
+    
+    <h4>
+      Future Work
+    </h4>
+    This implementation only utilized arm and upper torso motion from the Kinect. Bringing in the rest of the body data
+    would allow for more free expression through avatar body motions, and could open up more possibilities for designed
+    hybrid interactions.
+    
+    Face and hand tracking, also offered by the Kinect SDK, can open up even more granular layers of expressive control of
+    the avatar, and opens up more nonverbal communication possibilities between networked players.
+
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
